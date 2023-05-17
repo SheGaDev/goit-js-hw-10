@@ -5,7 +5,6 @@ import { fetchCountries } from "./js/fetchCountries.js";
 class Countries {
     #DEBOUNCE_DELAY = 300;
     constructor(data = {}) {
-        this.events = [];
         this.elements = {};
         if (!Object.keys(data?.elements).length)
             throw new Error("Required object elements { name: element }");
