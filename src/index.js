@@ -37,22 +37,18 @@ class Countries {
         }
     }
     setList(countries) {
-        this.elements.list.style.cssText = `margin: 0; padding: 0; display: flex; 
-        flex-direction: column; ustiny-content: center; gap: 5px; list-style: none; font-size: 20px`;
         this.elements.list.innerHTML = countries
             .map(({ name: { official }, flags: { svg } }) =>
-                `<li><img src=${svg} alt="Flag ${official}" width="30" height="30"/><span> ${official}</span></li>`).join("");
-        for (const element of this.elements.list.children) element.style.cssText = "display: flex; gap: 5px;";
+                `<li><img src=${svg} alt="Flag ${official}" width="40" height="35"/><span> ${official}</span></li>`).join("");
         // Не хоче відображатись свг..
         // .map(({ name: { official }, flags: { svg }}) =>
         //     `<li><svg width="60" height="40"><use href=${svg}></use></svg><span>${official}</span></li>`).join("");
     }
     setInfo({ name: { official }, capital, population, flags: { svg }, languages }) {
-        this.elements.info.innerHTML = `<h1><img src=${svg} alt="Flag ${official}" width="50" height="50"/> ${official}</h1>
+        this.elements.info.innerHTML = `<h1><img src=${svg} alt="Flag ${official}" width="55" height="50"/> ${official}</h1>
         <p><b>Capital:</b> ${capital}</p>
         <p><b>Population:</b> ${population.toLocaleString("uk-UK")}</p>
         <p><b>Languages:</b> ${Object.values(languages).join(", ")}</p>`;
-        this.elements.info.firstElementChild.style.cssText = "display: flex; justiny-content: center; gap: 5px;"
     }
     async fetchCountry(name) {
         const res = await fetchCountries(name)
