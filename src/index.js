@@ -25,8 +25,8 @@ class Countries {
             return;
         }
         const countries = await country.fetchCountry(name);
-        if (!countries) return;
         country.clearElements(country.elements)
+        if (!countries) return;
         if (countries.length === 1) country.setInfo(countries[0]);
         else if (countries.length > 1 && countries.length <= 10)
             country.setList(countries);
